@@ -11,9 +11,19 @@ config_version=5
 [application]
 
 config/name="godot-wild-jam-83"
+run/main_scene="uid://cp24c44wycqgj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="godot-wild-jam-83"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Prototypes/": "purple",
+"res://Scenes/": "blue",
+"res://Sounds/": "green"
+}
