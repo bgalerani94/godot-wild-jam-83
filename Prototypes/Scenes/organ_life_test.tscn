@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4bol4l2iw5cm"]
+
+[ext_resource type="Script" uid="uid://dt0nqokd2e81s" path="res://Prototypes/Scripts/organ_life_test.gd" id="1_58cjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyv57"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oufjs"]
+bg_color = Color(0.254902, 0.788235, 0, 1)
+
+[node name="OrganLifeTest" type="Node2D"]
+script = ExtResource("1_58cjv")
+
+[node name="LifeBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 1125.0
+offset_bottom = 49.0
+grow_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_dyv57")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oufjs")
+value = 78.89
+show_percentage = false
