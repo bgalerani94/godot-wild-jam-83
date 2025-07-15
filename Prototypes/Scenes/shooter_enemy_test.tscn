@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://sepctd0f2brt"]
+
+[ext_resource type="Script" uid="uid://cy5knl3exhugv" path="res://Prototypes/Scripts/shooter_enemy_test.gd" id="1_ilndy"]
+[ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_n60j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilndy"]
+size = Vector2(130, 124)
+
+[node name="ShooterEnemyTest" type="CharacterBody2D"]
+script = ExtResource("1_ilndy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.723894, 0.121523, 1)
+texture = ExtResource("1_n60j3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ilndy")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwden86376upe"]
+
+[ext_resource type="PackedScene" uid="uid://d0v87w777rvwn" path="res://Player/Scenes/Player.tscn" id="1_smuaa"]
+[ext_resource type="PackedScene" uid="uid://sepctd0f2brt" path="res://Prototypes/Scenes/shooter_enemy_test.tscn" id="2_smuaa"]
+
+[node name="TestScene" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_smuaa")]
+
+[node name="ShooterEnemyTest" parent="." instance=ExtResource("2_smuaa")]
+position = Vector2(304, 193)
+
+[node name="ShooterEnemyTest3" parent="." instance=ExtResource("2_smuaa")]
+position = Vector2(-447, 187)
+
+[node name="ShooterEnemyTest4" parent="." instance=ExtResource("2_smuaa")]
+position = Vector2(-719, -131)
+
+[node name="ShooterEnemyTest2" parent="." instance=ExtResource("2_smuaa")]
+position = Vector2(909, 31)
