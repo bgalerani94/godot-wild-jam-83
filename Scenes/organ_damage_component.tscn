@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg8ukn42id1uc"]
+
+[ext_resource type="Script" uid="uid://jf7aieeqsqiu" path="res://Scripts/organ_damage_component.gd" id="1_on4is"]
+
+[node name="OrganDamageComponent" type="Node"]
+script = ExtResource("1_on4is")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw5g4dr50s4my"]
+
+[ext_resource type="PackedScene" uid="uid://d3yrjrvr4aio3" path="res://Scenes/organ_health_component.tscn" id="1_3uon5"]
+
+[node name="Stomach" type="Node2D"]
+
+[node name="OrganHealthComponent" parent="." instance=ExtResource("1_3uon5")]
+max_health = 100.0
+
+[editable path="OrganHealthComponent"]

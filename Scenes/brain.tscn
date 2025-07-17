@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxvkknt8mtrx7"]
+
+[ext_resource type="PackedScene" uid="uid://d3yrjrvr4aio3" path="res://Scenes/organ_health_component.tscn" id="1_x6dqy"]
+
+[node name="Brain" type="Node2D"]
+
+[node name="OrganHealthComponent" parent="." instance=ExtResource("1_x6dqy")]
+max_health = 100.0

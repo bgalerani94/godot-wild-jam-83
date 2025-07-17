@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://yxt0n16wsn2u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euthy"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcfsh"]
+bg_color = Color(0, 0.947691, 0.319749, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="OrganStats" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 111.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ElementsContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="OrganNameLabel" type="Label" parent="Control/MarginContainer/ElementsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ORGAN HEALTH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OrganHealthBar" type="ProgressBar" parent="Control/MarginContainer/ElementsContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_euthy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hcfsh")
+value = 50.0
+show_percentage = false
