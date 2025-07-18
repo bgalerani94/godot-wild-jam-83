@@ -1,9 +1,11 @@
 extends Marker2D
 
 @export var bulletScn: PackedScene
+@onready var damage_component: DamageComponent = $"../OrganDamageComponent"
+
 
 func _process(delta: float) -> void:
-	if(Input.is_action_just_pressed("fire")):
+	if Input.is_action_just_pressed("fire") and !damage_component.is_damaging:
 		fire()
 		
 func fire() -> void:
