@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs7t3mki86y2q"]
+
+[ext_resource type="Script" uid="uid://n5wkr4byxmmx" path="res://Scripts/biga__test_enemy_2.gd" id="1_6pyr6"]
+[ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_430v5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgx7e"]
+size = Vector2(22, 22)
+
+[node name="Biga_Enemy_2" type="CharacterBody2D"]
+script = ExtResource("1_6pyr6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.167969, 0.167969)
+texture = ExtResource("1_430v5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dgx7e")

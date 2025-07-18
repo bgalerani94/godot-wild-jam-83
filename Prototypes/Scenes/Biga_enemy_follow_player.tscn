@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg8lhj7ahfpgm"]
+
+[ext_resource type="PackedScene" uid="uid://bs7t3mki86y2q" path="res://Scenes/biga__test_enemy_2.tscn" id="1_3v0n0"]
+[ext_resource type="PackedScene" uid="uid://d0v87w777rvwn" path="res://Player/Scenes/Player.tscn" id="3_3wter"]
+[ext_resource type="PackedScene" uid="uid://b0vap1bs44xfd" path="res://Scenes/biga__test_enemy_1.tscn" id="3_7d30c"]
+
+[node name="Enemy_follow_player" type="Node2D"]
+
+[node name="Biga_Enemy_2" parent="." instance=ExtResource("1_3v0n0")]
+
+[node name="Biga_Enemy_1" parent="." instance=ExtResource("3_7d30c")]
+position = Vector2(13, 135)
+
+[node name="Player" parent="." instance=ExtResource("3_3wter")]
+position = Vector2(580, 326)
