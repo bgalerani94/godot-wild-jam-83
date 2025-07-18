@@ -1,10 +1,11 @@
 extends CanvasLayer
 
-@onready var name_label = $CenterContainer/VBoxContainer/CharacterName
-@onready var organ_label = $CenterContainer/VBoxContainer/OrganName
+@onready var name_label = %CharacterName
+@onready var organ_label = %OrganName
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
-func _ready():
-	CharacterGenerator.generate_name()
-	CharacterGenerator.current_organ_index = randi_range(0, 4)
-	name_label.text = CharacterGenerator.current_character
-	organ_label.text = CharacterGenerator.organs[CharacterGenerator.current_organ_index]
+func play_transition(new_name, new_organ : String):
+	name_label.text = new_name
+	organ_label.text = new_organ
+	visible = true
+	animation_player.play("fade_in")
