@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=7 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_0qu43"]
 [ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_4pdrp"]
 [ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scenes/player_shoot.gd" id="3_hql3v"]
 [ext_resource type="PackedScene" uid="uid://bbdnb2eijfh6r" path="res://Bullets/Scenes/bullet.tscn" id="4_nk6jx"]
+[ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_7jgbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qu43"]
 size = Vector2(128, 129)
@@ -28,3 +29,5 @@ shape = SubResource("RectangleShape2D_0qu43")
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+
+[node name="OrganDamageComponent" parent="." instance=ExtResource("5_7jgbj")]

@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwden86376upe"]
+[gd_scene load_steps=2 format=3 uid="uid://dwden86376upe"]
 
 [ext_resource type="PackedScene" uid="uid://d0v87w777rvwn" path="res://Player/Scenes/Player.tscn" id="1_smuaa"]
-[ext_resource type="PackedScene" uid="uid://dac6bdkanty6d" path="res://Scenes/liver.tscn" id="3_f7dfn"]
-[ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="3_lfrlg"]
 
 [node name="TestScene" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_smuaa")]
-
-[node name="OrganDamageComponent" parent="Player" instance=ExtResource("3_lfrlg")]
-
-[node name="Liver" parent="." instance=ExtResource("3_f7dfn")]

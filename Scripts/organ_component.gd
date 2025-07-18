@@ -18,6 +18,7 @@ func deplete_health(amount : float):
 	update_display()
 	if health <= 0:
 		health = 0
+		print("Oh FUCK IM DEAD")
 		health_depleted.emit()
 
 func update_display():

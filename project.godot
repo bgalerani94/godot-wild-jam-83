@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="godot-wild-jam-83"
-run/main_scene="uid://cp24c44wycqgj"
+run/main_scene="uid://dwden86376upe"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 CharacterGenerator="*res://Scripts/character_generator.gd"
+SceneManager="*res://Scripts/game_manager.gd"
 
 [dotnet]
 
