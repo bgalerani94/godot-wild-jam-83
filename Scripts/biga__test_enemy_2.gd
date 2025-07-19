@@ -33,7 +33,7 @@ func _physics_process(delta):
 func fire() -> void:
 	var bullet = bulletScn.instantiate()
 	bullet.position = global_position
-	$Bullets.add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 	var direction = (player.global_position - global_position).normalized()
 	bullet.apply_impulse(direction * 1000)
 
