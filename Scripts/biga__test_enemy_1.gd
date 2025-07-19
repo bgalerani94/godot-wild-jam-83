@@ -17,8 +17,3 @@ func _physics_process(delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
-	
-func _on_body_entered(body):
-	if body == player:
-		player.queue_free()
-		player = null
