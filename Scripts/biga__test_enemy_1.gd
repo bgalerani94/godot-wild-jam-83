@@ -17,3 +17,11 @@ func _physics_process(delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("ACERTO MIZERAVI")
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	print("SAIU VIADO")

@@ -44,7 +44,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	fire()
 	$Shoot_Timer.start()
 	shoot = true
-	print("CU CABELUDO")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

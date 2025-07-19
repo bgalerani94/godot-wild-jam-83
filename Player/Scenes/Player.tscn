@@ -28,8 +28,9 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qu43"]
-size = Vector2(126, 126)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7jgbj"]
+radius = 24.0
+height = 84.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
@@ -50,7 +51,9 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0qu43")
+position = Vector2(11, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7jgbj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0

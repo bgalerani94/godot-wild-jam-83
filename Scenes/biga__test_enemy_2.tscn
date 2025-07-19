@@ -8,7 +8,7 @@
 size = Vector2(22, 22)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46q8v"]
-radius = 87.0057
+radius = 137.004
 
 [node name="Biga_Enemy_2" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2

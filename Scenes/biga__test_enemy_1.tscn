@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0vap1bs44xfd"]
+[gd_scene load_steps=8 format=3 uid="uid://b0vap1bs44xfd"]
 
 [ext_resource type="Script" uid="uid://op1mehujl7y4" path="res://Scripts/biga__test_enemy_1.gd" id="1_dgx7e"]
 [ext_resource type="Texture2D" uid="uid://c75wqu6aiejwy" path="res://Assets/EnemySpriteSheett.png" id="2_dgx7e"]
@@ -28,6 +28,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgx7e"]
 size = Vector2(22, 22)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgx7e"]
+radius = 17.0
+
 [node name="Biga_Enemy_1" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
 script = ExtResource("1_dgx7e")
@@ -41,3 +44,11 @@ frame_progress = 0.117841
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dgx7e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dgx7e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
