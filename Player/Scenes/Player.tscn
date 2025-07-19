@@ -40,6 +40,7 @@ script = ExtResource("1_0qu43")
 speed = 250.0
 
 [node name="Shoot" type="Marker2D" parent="."]
+position = Vector2(66, 0)
 script = ExtResource("3_hql3v")
 bulletScn = ExtResource("4_nk6jx")
 
