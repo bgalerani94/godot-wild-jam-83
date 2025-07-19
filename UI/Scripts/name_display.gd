@@ -27,7 +27,7 @@ func add_new_label(name):
 	var name_label = Label.new()
 	name_label.text = name
 	name_label.add_theme_color_override("font_color", Color.WHITE)
-	name_label.add_theme_font_size_override("font_size", 70)
+	name_label.add_theme_font_size_override("font_size", 30)
 	grid_container.add_child(name_label)
 
 # Checa uantidade de nomes para definir quantas colunas terá a grid

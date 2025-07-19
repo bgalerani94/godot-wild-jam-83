@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgx7e"]
 size = Vector2(22, 22)
 
-[node name="Biga_Enemy_1" type="CharacterBody2D"]
+[node name="Biga_Enemy_1" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_dgx7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

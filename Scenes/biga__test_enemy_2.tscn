@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgx7e"]
 size = Vector2(22, 22)
 
-[node name="Biga_Enemy_2" type="CharacterBody2D"]
+[node name="Biga_Enemy_2" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_6pyr6")
 bulletScn = ExtResource("2_46q8v")
 
@@ -19,7 +19,6 @@ texture = ExtResource("1_430v5")
 shape = SubResource("RectangleShape2D_dgx7e")
 
 [node name="Shoot_Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Bullets" type="Node2D" parent="."]
 
