@@ -11,6 +11,7 @@ func _physics_process(delta: float) -> void:
 	velocity = movement_vector * speed	
 	move_and_collide(velocity * delta)	
 	look_at(get_global_mouse_position())
+
 	if velocity != Vector2.ZERO:
 		if !was_moving:
 			was_moving = true

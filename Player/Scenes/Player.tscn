@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=9 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_0qu43"]
 [ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_4pdrp"]
@@ -7,7 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_7jgbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qu43"]
-size = Vector2(128, 129)
+size = Vector2(126, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jgbj"]
+size = Vector2(130, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejah4"]
+size = Vector2(1, 128)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
@@ -22,7 +28,6 @@ bulletScn = ExtResource("4_nk6jx")
 texture = ExtResource("1_4pdrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0qu43")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -31,3 +36,23 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="OrganDamageComponent" parent="." instance=ExtResource("5_7jgbj")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Collision_Up" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -64.5)
+shape = SubResource("RectangleShape2D_7jgbj")
+
+[node name="Collision_Left" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-64.5, 0)
+shape = SubResource("RectangleShape2D_ejah4")
+
+[node name="Collision_Right" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(64.5, 0)
+shape = SubResource("RectangleShape2D_ejah4")
+
+[node name="Collision_Down" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_7jgbj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
