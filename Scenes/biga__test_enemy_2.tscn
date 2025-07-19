@@ -8,6 +8,7 @@
 size = Vector2(22, 22)
 
 [node name="Biga_Enemy_2" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
 script = ExtResource("1_6pyr6")
 bulletScn = ExtResource("2_46q8v")
 

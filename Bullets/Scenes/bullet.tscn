@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbdnb2eijfh6r"]
+[gd_scene load_steps=6 format=3 uid="uid://bbdnb2eijfh6r"]
 
 [ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_jdso1"]
+[ext_resource type="Script" uid="uid://ckj3p5w0d5x5t" path="res://Bullets/Scripts/bullet_node.gd" id="1_ltomt"]
+[ext_resource type="Script" uid="uid://bcti0o7ooymjx" path="res://Bullets/Scripts/bullet_area_2d.gd" id="2_0u3wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0u3wh"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltomt"]
 size = Vector2(16, 16)
 
 [node name="Bullet" type="RigidBody2D"]
 collision_mask = 2
 mass = 0.2
 gravity_scale = 0.0
+script = ExtResource("1_ltomt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.283456, 0.000471489, 0.786222, 1)
@@ -17,3 +23,15 @@ texture = ExtResource("1_jdso1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0u3wh")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("2_0u3wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ltomt")
+
+[connection signal="area_shape_entered" from="Area2D" to="Area2D" method="_on_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -7,6 +7,7 @@
 size = Vector2(22, 22)
 
 [node name="Biga_Enemy_1" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
 script = ExtResource("1_dgx7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

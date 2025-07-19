@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 		
 func fire() -> void:
 	var bullet = bulletScn.instantiate()
+	bullet.get_node("Area2D").is_player_bullet = true
 	bullet.position = global_position
 	get_tree().current_scene.add_child(bullet)
 	var mouse_pos = get_viewport().get_camera_2d().get_global_mouse_position()
