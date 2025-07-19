@@ -13,7 +13,10 @@ func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	queue_free()
+	if body.is_in_group("Player"):
+		pass
+	else:
+		queue_free()
 
 	if velocity != Vector2.ZERO:
 		if !was_moving:
