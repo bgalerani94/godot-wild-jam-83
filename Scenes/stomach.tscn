@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d3yrjrvr4aio3" path="res://Scenes/organ_health_component.tscn" id="1_3uon5"]
 [ext_resource type="Script" uid="uid://dc4ka32ge834c" path="res://Scripts/base_organ.gd" id="1_tckbj"]
 
-[node name="Stomach" type="Node2D" node_paths=PackedStringArray("health_component")]
+[node name="Stomach" type="Node2D" node_paths=PackedStringArray("health_component") groups=["Organ"]]
 script = ExtResource("1_tckbj")
 health_component = NodePath("OrganHealthComponent")
 

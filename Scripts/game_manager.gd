@@ -28,6 +28,12 @@ func _ready():
 	load_transition_scene()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		var current_scene = get_tree().get_first_node_in_group("Organ")
+		current_scene.queue_free()
+		get_tree().change_scene_to_file("res://UI/Scenes/name_display.tscn")
+
 # Função de gerar personagem 
 func generate_character_info():
 	CharacterGenerator.generate_name()
