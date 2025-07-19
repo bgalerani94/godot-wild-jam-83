@@ -19,6 +19,7 @@ texture = ExtResource("1_430v5")
 shape = SubResource("RectangleShape2D_dgx7e")
 
 [node name="Shoot_Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Bullets" type="Node2D" parent="."]
 

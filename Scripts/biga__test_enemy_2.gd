@@ -27,16 +27,17 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if distance_target < stop_distance:
-		_on_shoot_timer_timeout()
-		
+		if shoot:
+			fire()
+			shoot = false
 		
 func fire() -> void:
 	var bullet = bulletScn.instantiate()
 	bullet.position = global_position
-	$Bullets.add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 	var direction = (player.global_position - global_position).normalized()
 	bullet.apply_impulse(direction * 1000)
 
 
 func _on_shoot_timer_timeout() -> void:
-	fire()
+	shoot = true
