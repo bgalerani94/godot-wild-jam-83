@@ -1,10 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=12 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_0qu43"]
-[ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_4pdrp"]
 [ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scenes/player_shoot.gd" id="3_hql3v"]
+[ext_resource type="Texture2D" uid="uid://b1bxv1akcxcxj" path="res://Assets/BacteriaIdleSheet.png" id="4_7jgbj"]
 [ext_resource type="PackedScene" uid="uid://bbdnb2eijfh6r" path="res://Bullets/Scenes/bullet.tscn" id="4_nk6jx"]
 [ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_7jgbj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejah4"]
+atlas = ExtResource("4_7jgbj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyx6f"]
+atlas = ExtResource("4_7jgbj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n15od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejah4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyx6f")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qu43"]
 size = Vector2(126, 126)
@@ -24,8 +46,13 @@ speed = 250.0
 script = ExtResource("3_hql3v")
 bulletScn = ExtResource("4_nk6jx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4pdrp")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(4.06682, 4.06682)
+sprite_frames = SubResource("SpriteFrames_n15od")
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0qu43")
