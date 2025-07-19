@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=10 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_0qu43"]
 [ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scenes/player_shoot.gd" id="3_hql3v"]
@@ -31,9 +31,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qu43"]
 size = Vector2(126, 126)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jgbj"]
-size = Vector2(130, 129.5)
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_0qu43")
@@ -60,11 +57,3 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="OrganDamageComponent" parent="." instance=ExtResource("5_7jgbj")]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Collision_Down" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -0.25)
-shape = SubResource("RectangleShape2D_7jgbj")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

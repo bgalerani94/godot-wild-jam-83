@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs7t3mki86y2q"]
+[gd_scene load_steps=6 format=3 uid="uid://bs7t3mki86y2q"]
 
 [ext_resource type="Script" uid="uid://n5wkr4byxmmx" path="res://Scripts/biga__test_enemy_2.gd" id="1_6pyr6"]
 [ext_resource type="Texture2D" uid="uid://doyano5al7886" path="res://icon.svg" id="1_430v5"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgx7e"]
 size = Vector2(22, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46q8v"]
+radius = 87.0057
 
 [node name="Biga_Enemy_2" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
@@ -23,4 +26,12 @@ shape = SubResource("RectangleShape2D_dgx7e")
 
 [node name="Bullets" type="Node2D" parent="."]
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_46q8v")
+
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

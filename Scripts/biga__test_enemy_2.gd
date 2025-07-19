@@ -3,8 +3,10 @@ extends CharacterBody2D
 @export var bulletScn: PackedScene
 @export var speed := 150
 @export var stop_distance := 150
+@export var evade_distance := 140
 var player : Node2D
-var shoot = true;
+var shoot = false
+var canwalk = true
 
 func _ready():
 	player = get_node_or_null("../Player")
@@ -20,16 +22,12 @@ func _physics_process(delta):
 	
 	if distance_target > stop_distance:
 		velocity = direction * speed
-	elif distance_target < stop_distance:
+	elif distance_target < evade_distance:
 		velocity = -direction * speed
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
-	
-	if distance_target < stop_distance:
-		_on_shoot_timer_timeout()
-		
-		
+
 func fire() -> void:
 	var bullet = bulletScn.instantiate()
 	bullet.position = global_position
@@ -39,4 +37,16 @@ func fire() -> void:
 
 
 func _on_shoot_timer_timeout() -> void:
+	fire()#shoot = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	fire()
+	$Shoot_Timer.start()
+	shoot = true
+	print("CU CABELUDO")
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	$Shoot_Timer.stop()
+	shoot = false
