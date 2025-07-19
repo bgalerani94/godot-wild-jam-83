@@ -27,7 +27,6 @@ func _ready():
 	load_level()
 	load_transition_scene()
 
-
 # Função de gerar personagem 
 func generate_character_info():
 	CharacterGenerator.generate_name()

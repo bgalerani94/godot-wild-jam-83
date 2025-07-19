@@ -4,4 +4,4 @@
 
 [node name="OrganDamageComponent" type="Node"]
 script = ExtResource("1_on4is")
-damage_rate = 100.0
+damage_rate = 500.0
