@@ -37,7 +37,7 @@ func fire() -> void:
 
 
 func _on_shoot_timer_timeout() -> void:
-	fire()#shoot = false
+	fire()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
