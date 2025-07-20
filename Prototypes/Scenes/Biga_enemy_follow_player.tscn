@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bs7t3mki86y2q" path="res://Scenes/biga__test_enemy_2.tscn" id="1_3v0n0"]
 [ext_resource type="PackedScene" uid="uid://b0vap1bs44xfd" path="res://Scenes/biga__test_enemy_1.tscn" id="3_3v0n0"]
-[ext_resource type="PackedScene" uid="uid://d0v87w777rvwn" path="res://Player/Scripts/Player.tscn" id="3_3wter"]
+[ext_resource type="PackedScene" uid="uid://d0v87w777rvwn" path="res://Player/Scenes/Player.tscn" id="3_3wter"]
 
 [node name="Enemy_follow_player" type="Node2D"]
 

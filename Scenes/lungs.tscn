@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3irjyiaw4aji"]
+[gd_scene load_steps=4 format=3 uid="uid://c3irjyiaw4aji"]
 
 [ext_resource type="PackedScene" uid="uid://d3yrjrvr4aio3" path="res://Scenes/organ_health_component.tscn" id="1_3aqtv"]
 [ext_resource type="Script" uid="uid://dc4ka32ge834c" path="res://Scripts/base_organ.gd" id="1_ywf2v"]
+[ext_resource type="PackedScene" uid="uid://mgeyhh80krxo" path="res://Scenes/organ_background.tscn" id="3_cixib"]
 
 [node name="lungs" type="Node2D" node_paths=PackedStringArray("health_component")]
 script = ExtResource("1_ywf2v")
@@ -9,3 +10,6 @@ health_component = NodePath("OrganHealthComponent")
 
 [node name="OrganHealthComponent" parent="." instance=ExtResource("1_3aqtv")]
 max_health = 100.0
+
+[node name="OrganBackground" parent="." instance=ExtResource("3_cixib")]
+rect_color = Color(0.352941, 0.411765, 0.533333, 1)

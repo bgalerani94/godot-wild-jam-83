@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=16 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_g2uht"]
-[ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scenes/player_shoot.gd" id="2_d5g4d"]
+[ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scripts/player_shoot.gd" id="2_d5g4d"]
+[ext_resource type="Texture2D" uid="uid://e1610l22eby2" path="res://Assets/PlayerShadow.png" id="2_ulbg8"]
 [ext_resource type="PackedScene" uid="uid://bbdnb2eijfh6r" path="res://Bullets/Scenes/bullet.tscn" id="3_58ojk"]
 [ext_resource type="Texture2D" uid="uid://b1bxv1akcxcxj" path="res://Assets/BacteriaIdleSheet.png" id="4_vwjhv"]
 [ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_n8krj"]
@@ -41,6 +42,11 @@ height = 84.0
 collision_mask = 2
 script = ExtResource("1_g2uht")
 speed = 250.0
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5.22222, 5.22222)
+texture = ExtResource("2_ulbg8")
 
 [node name="Shoot" type="Marker2D" parent="."]
 position = Vector2(66, 0)

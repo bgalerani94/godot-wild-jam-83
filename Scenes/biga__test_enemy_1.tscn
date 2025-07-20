@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0vap1bs44xfd"]
+[gd_scene load_steps=9 format=3 uid="uid://b0vap1bs44xfd"]
 
 [ext_resource type="Script" uid="uid://op1mehujl7y4" path="res://Scripts/biga__test_enemy_1.gd" id="1_dgx7e"]
 [ext_resource type="Texture2D" uid="uid://c75wqu6aiejwy" path="res://Assets/EnemySpriteSheett.png" id="2_dgx7e"]
+[ext_resource type="Texture2D" uid="uid://h04xqj4jpk4t" path="res://Assets/Enemy1Shadow.png" id="2_mnewk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnewk"]
 atlas = ExtResource("2_dgx7e")
@@ -35,6 +36,12 @@ radius = 54.037
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_dgx7e")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 18.965)
+scale = Vector2(2.01167, 2.01167)
+texture = ExtResource("2_mnewk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
