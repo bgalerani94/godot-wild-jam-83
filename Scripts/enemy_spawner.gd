@@ -13,4 +13,5 @@ func spawn_enemy():
 
 
 func _on_timer_timeout():
-	spawn_enemy()
+	if SceneManager.current_state == SceneManager.GameState.PLAYING:
+		spawn_enemy()

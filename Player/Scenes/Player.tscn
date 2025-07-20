@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b1bxv1akcxcxj" path="res://Assets/BacteriaIdleSheet.png" id="4_7jgbj"]
 [ext_resource type="PackedScene" uid="uid://bbdnb2eijfh6r" path="res://Bullets/Scenes/bullet.tscn" id="4_nk6jx"]
 [ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_7jgbj"]
-[ext_resource type="Script" path="res://Player/Scripts/health_bar.gd" id="6_ejah4"]
+[ext_resource type="Script" uid="uid://c1nqew2haiv7y" path="res://Player/Scripts/health_bar.gd" id="6_ejah4"]
 [ext_resource type="PackedScene" uid="uid://bh8wh1fg8pnw5" path="res://Scenes/enemy_spawner.tscn" id="7_wyx6f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejah4"]
@@ -80,5 +80,8 @@ grow_horizontal = 2
 value = 100.0
 show_percentage = false
 script = ExtResource("6_ejah4")
+metadata/_edit_use_anchors_ = true
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_wyx6f")]
+
+[connection signal="player_died" from="HealthBarHolder/HealthBar" to="." method="_on_health_bar_player_died"]

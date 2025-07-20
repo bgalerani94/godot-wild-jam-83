@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 	names_array = CharacterGenerator.completed_character.duplicate()
 	names_array.sort()
-	setup_names(names_array)
+	setup_names(names_array)	
 
 func setup_names(names : Array):
 	# Apaga lista de nomes anteriores

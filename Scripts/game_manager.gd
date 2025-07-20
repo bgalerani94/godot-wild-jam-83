@@ -12,20 +12,24 @@ const LIVER = preload("res://Scenes/liver.tscn")
 const LUNGS = preload("res://Scenes/lungs.tscn")
 const HEART = preload("res://Scenes/heart.tscn")
 const BRAIN = preload("res://Scenes/brain.tscn")
+const NAME_DISPLAY = preload("res://UI/Scenes/name_display.tscn")
 
 var current_organ_instance = null
 var organ_health_component : OrganComponent = null
 var player : CharacterBody2D
+var health_bar : ProgressBar
 var damage_component : DamageComponent
 
 signal level_loaded
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	health_bar = player.get_node("HealthBarHolder/HealthBar")
 	damage_component = player.get_node("OrganDamageComponent")
 	generate_character_info()
 	load_level()
 	load_transition_scene()
+	health_bar.player_died.connect(on_player_died)
 
 # Função de gerar personagem 
 func generate_character_info():
@@ -77,7 +81,11 @@ func load_level():
 		organ_health_component.health_depleted.connect(_on_organ_health_depleted)
 	level_loaded.emit()
 
-func _on_organ_health_depleted():
+func _on_organ_health_depleted():	
+	var enemies_loaded = get_tree().get_nodes_in_group("Enemy")
+	for enemy in enemies_loaded:
+		enemy.queue_free()
+	
 	damage_component.disable_input()
 	current_state = GameState.TRANSITION
 	
@@ -93,3 +101,7 @@ func _on_organ_health_depleted():
 	else:
 		load_level()
 		load_transition_scene()
+		
+func on_player_died() -> void:
+	current_organ_instance.queue_free()
+	get_tree().change_scene_to_packed(NAME_DISPLAY)
