@@ -2,6 +2,7 @@ class_name DamageComponent
 extends Node
 
 @onready var player: CharacterBody2D = $".."
+@onready var consume_audio_player : AudioStreamPlayer2D = $"../ConsumeAudioPlayer"
 
 @export var damage_rate : float = 1.75
 var input_enabled : bool = false
@@ -29,6 +30,8 @@ func deal_damage(delta):
 	if is_instance_valid(organ_to_damage) and organ_to_damage.has_method("deplete_health"):
 		organ_to_damage.deplete_health(damage_rate * delta)
 		is_damaging = true
+		if not consume_audio_player.playing:
+			consume_audio_player.play()
 	else:
 		disable_input()
 		get_new_target()

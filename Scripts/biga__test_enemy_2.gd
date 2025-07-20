@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var speed := 150
 @export var stop_distance := 150
 @export var evade_distance := 140
+@onready var fire_audio_player = $FireAudioPlayer
+
 var player : Node2D
 var shoot = false
 var canwalk = true
@@ -34,6 +36,8 @@ func fire() -> void:
 	get_tree().current_scene.add_child(bullet)
 	var direction = (player.global_position - global_position).normalized()
 	bullet.apply_impulse(direction * 1000)
+	fire_audio_player.pitch_scale = randf_range(0.7, 1.45)
+	fire_audio_player.play()
 
 
 func _on_shoot_timer_timeout() -> void:

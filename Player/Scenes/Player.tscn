@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=15 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_0qu43"]
 [ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scenes/player_shoot.gd" id="3_hql3v"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_7jgbj"]
 [ext_resource type="Script" uid="uid://c1nqew2haiv7y" path="res://Player/Scripts/health_bar.gd" id="6_ejah4"]
 [ext_resource type="PackedScene" uid="uid://bh8wh1fg8pnw5" path="res://Scenes/enemy_spawner.tscn" id="7_wyx6f"]
+[ext_resource type="AudioStream" uid="uid://b63368bmndoyt" path="res://Assets/Consume.ogg" id="8_n15od"]
+[ext_resource type="AudioStream" uid="uid://dtig7hkt4bhql" path="res://Assets/Fire.ogg" id="9_on2vx"]
+[ext_resource type="AudioStream" uid="uid://c4ayjllk2kl7j" path="res://Assets/Player-death.ogg" id="10_6rv2o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejah4"]
 atlas = ExtResource("4_7jgbj")
@@ -83,5 +86,15 @@ script = ExtResource("6_ejah4")
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_wyx6f")]
+
+[node name="ConsumeAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_n15od")
+
+[node name="FireAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_on2vx")
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_6rv2o")
 
 [connection signal="player_died" from="HealthBarHolder/HealthBar" to="." method="_on_health_bar_player_died"]

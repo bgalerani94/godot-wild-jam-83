@@ -2,6 +2,7 @@ extends Marker2D
 
 @export var bulletScn: PackedScene
 @onready var damage_component: DamageComponent = $"../OrganDamageComponent"
+@onready var fire_audio_player = %FireAudioPlayer
 
 
 func _process(delta: float) -> void:
@@ -16,3 +17,5 @@ func fire() -> void:
 	var mouse_pos = get_viewport().get_camera_2d().get_global_mouse_position()
 	var direction = (mouse_pos - global_position).normalized()
 	bullet.apply_impulse(direction * 1000)
+	fire_audio_player.pitch_scale = randf_range(0.7, 1.45)
+	fire_audio_player.play()
