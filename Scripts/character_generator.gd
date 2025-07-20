@@ -3,9 +3,9 @@ extends Node
 # Organs for scene manager to load
 var organs : Array = ["Stomach", "Liver", "Lungs", "Heart", "Brain"]
 # List of first names for random generation
-var first_names : Array = ["John", "Mary","Ryan", "Adrian", "Bruno", "Allan", "Felipe", "Joanna", "Bob", "Bogas"]
+var first_names : Array = ["John", "Maryanne","Ryan", "Adrian", "Bruno", "Allan", "Felipe", "Joanna", "Bob", "Joseph", "Chrystian", "Rudolph", "Matthias", "Juliane", "Boris"]
 #List of last names for random generation
-var last_names : Array = ["Smith", "Johnson", "Fini", "Brown", "Garcia", "Bigatto", "Williams", "Cremasco", "Galerani"]
+var last_names : Array = ["Smith", "Johnson", "Fini", "Brown", "Garcia", "Bigatto", "Williams", "Cremasco", "Galerani", "Spielberg", "Burnquist", "Gentilli", "Nollan", "Stew", "Fulfaro", "Thenorio"]
 
 var current_character : String = ""
 var current_first_name : String = ""
