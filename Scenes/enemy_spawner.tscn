@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_1x4no"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -992, -709, 0, 0, 0, 0, 1108, -709, 0, 0, 0, 0, 1089, 624, 0, 0, 0, 0, -1018, 620, 0, 0, 0, 0, -992, -709)
+"points": PackedVector2Array(0, 0, 0, 0, -825, 427, 0, 0, 0, 0, 851, 424, 0, 0, 0, 0, 846, -500, 0, 0, 0, 0, -821, -502, 0, 0, 0, 0, -825, 427)
 }
 point_count = 5
 
@@ -14,9 +14,11 @@ script = ExtResource("1_4l55s")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-992, -709)
+position = Vector2(-825, 427)
+rotation = -0.00178997
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
