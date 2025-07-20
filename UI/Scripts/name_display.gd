@@ -41,5 +41,4 @@ func check_columns(name_amount):
 
 
 func _on_play_again_button_pressed() -> void:
-	print("REplaaay")
 	SceneManager.start_game()

@@ -6,7 +6,6 @@ extends CanvasLayer
 @onready var fake_bg: ColorRect = $FakeBg
 
 func play_transition(new_name, new_organ : String, show_fake_bg : bool):
-	print(show_fake_bg)
 	fake_bg.visible = show_fake_bg
 	name_label.text = new_name
 	organ_label.text = new_organ
