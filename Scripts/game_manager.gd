@@ -23,6 +23,15 @@ var damage_component : DamageComponent
 signal level_loaded
 
 func _ready():
+	start_game()
+	
+func start_game():	
+	if get_tree().current_scene.scene_file_path != "res://Prototypes/Scenes/test_scene.tscn":	
+		await get_tree().change_scene_to_file("res://Prototypes/Scenes/test_scene.tscn")
+		await get_tree().process_frame
+		await get_tree().process_frame
+		CharacterGenerator.completed_character.clear()
+			
 	player = get_tree().get_first_node_in_group("Player")
 	health_bar = player.get_node("HealthBarHolder/HealthBar")
 	damage_component = player.get_node("OrganDamageComponent")

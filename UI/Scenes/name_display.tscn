@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvqeueyxlbmrf"]
+[gd_scene load_steps=6 format=3 uid="uid://bvqeueyxlbmrf"]
 
 [ext_resource type="Script" uid="uid://biwuemuykubex" path="res://UI/Scripts/name_display.gd" id="1_smusg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e63vr"]
+bg_color = Color(0.0536419, 0.448491, 0.632947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft7ca"]
+bg_color = Color(0.054902, 0.447059, 0.631373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ickdg"]
+bg_color = Color(0.0379373, 0.375533, 0.533782, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smusg"]
+bg_color = Color(0.0869956, 0.548104, 0.767132, 1)
 
 [node name="NameDisplay" type="Control"]
 layout_mode = 3
@@ -47,17 +59,50 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NameGridMrginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NameGridMrginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/NameGridMrginContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 50
 columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Nominho"
+
+[node name="Label2" type="Label" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Nominho"
+
+[node name="Label3" type="Label" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Nominho"
+
+[node name="Label4" type="Label" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Nominho"
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer/NameGridMrginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_e63vr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ft7ca")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ickdg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_smusg")
+text = "Play Again"
+
+[connection signal="pressed" from="VBoxContainer/NameGridMrginContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]

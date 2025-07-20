@@ -1,7 +1,7 @@
 extends Control
 
 @onready var page_title: Label = $VBoxContainer/TitleMarginContainer/PageTitle
-@onready var grid_container: GridContainer = $VBoxContainer/NameGridMrginContainer/ScrollContainer/GridContainer
+@onready var grid_container: GridContainer = $VBoxContainer/NameGridMrginContainer/VBoxContainer/ScrollContainer/GridContainer
 
 var names_array : Array
 
@@ -38,3 +38,8 @@ func check_columns(name_amount):
 		return 3
 	else:
 		return 4
+
+
+func _on_play_again_button_pressed() -> void:
+	print("REplaaay")
+	SceneManager.start_game()

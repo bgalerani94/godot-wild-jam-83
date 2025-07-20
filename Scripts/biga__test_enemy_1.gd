@@ -20,8 +20,8 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("ACERTO MIZERAVI")
+	pass
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("SAIU VIADO")
+	pass
