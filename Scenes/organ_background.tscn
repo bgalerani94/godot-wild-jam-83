@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://mgeyhh80krxo"]
+
+[ext_resource type="Script" uid="uid://ddy0d222yiyk5" path="res://Scripts/organ_background.gd" id="1_wl2ut"]
+
+[node name="OrganBackground" type="CanvasLayer"]
+layer = -30
+script = ExtResource("1_wl2ut")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dac6bdkanty6d"]
+[gd_scene load_steps=4 format=3 uid="uid://dac6bdkanty6d"]
 
 [ext_resource type="Script" uid="uid://dc4ka32ge834c" path="res://Scripts/base_organ.gd" id="1_1re1y"]
 [ext_resource type="PackedScene" uid="uid://d3yrjrvr4aio3" path="res://Scenes/organ_health_component.tscn" id="1_s5wdm"]
+[ext_resource type="PackedScene" uid="uid://mgeyhh80krxo" path="res://Scenes/organ_background.tscn" id="3_fiscq"]
 
 [node name="Liver" type="Node2D" node_paths=PackedStringArray("health_component")]
 script = ExtResource("1_1re1y")
@@ -9,3 +10,6 @@ health_component = NodePath("OrganHealthComponent")
 
 [node name="OrganHealthComponent" parent="." instance=ExtResource("1_s5wdm")]
 max_health = 150.0
+
+[node name="OrganBackground" parent="." instance=ExtResource("3_fiscq")]
+rect_color = Color(0.517647, 0.607843, 0.894118, 1)
