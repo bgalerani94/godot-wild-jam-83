@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://clwgqpd7b53yb"]
+
+[ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_g2uht"]
+[ext_resource type="Script" path="res://Player/Scripts/player_shoot.gd" id="2_d5g4d"]
+[ext_resource type="PackedScene" uid="uid://bbdnb2eijfh6r" path="res://Bullets/Scenes/bullet.tscn" id="3_58ojk"]
+[ext_resource type="Texture2D" uid="uid://b1bxv1akcxcxj" path="res://Assets/BacteriaIdleSheet.png" id="4_vwjhv"]
+[ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_n8krj"]
+[ext_resource type="Script" uid="uid://c1nqew2haiv7y" path="res://Player/Scripts/health_bar.gd" id="6_fg8py"]
+[ext_resource type="PackedScene" uid="uid://bh8wh1fg8pnw5" path="res://Scenes/enemy_spawner.tscn" id="7_ekahu"]
+[ext_resource type="AudioStream" uid="uid://b63368bmndoyt" path="res://Assets/Consume.ogg" id="8_du7fu"]
+[ext_resource type="AudioStream" uid="uid://dtig7hkt4bhql" path="res://Assets/Fire.ogg" id="9_lknnq"]
+[ext_resource type="AudioStream" uid="uid://c4ayjllk2kl7j" path="res://Assets/Player-death.ogg" id="10_mqa8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejah4"]
+atlas = ExtResource("4_vwjhv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyx6f"]
+atlas = ExtResource("4_vwjhv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n15od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejah4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyx6f")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7jgbj"]
+radius = 24.0
+height = 84.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 2
+script = ExtResource("1_g2uht")
+speed = 250.0
+
+[node name="Shoot" type="Marker2D" parent="."]
+position = Vector2(66, 0)
+script = ExtResource("2_d5g4d")
+bulletScn = ExtResource("3_58ojk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(4.06682, 4.06682)
+sprite_frames = SubResource("SpriteFrames_n15od")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7jgbj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="OrganDamageComponent" parent="." instance=ExtResource("5_n8krj")]
+damage_rate = 0.4
+
+[node name="HealthBarHolder" type="Node2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="HealthBarHolder"]
+modulate = Color(0.3936, 0.96, 0.43136, 1)
+z_index = 15
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = -106.0
+offset_right = 101.0
+offset_bottom = -79.0
+grow_horizontal = 2
+value = 100.0
+show_percentage = false
+script = ExtResource("6_fg8py")
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_ekahu")]
+
+[node name="ConsumeAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_du7fu")
+
+[node name="FireAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_lknnq")
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_mqa8k")
+
+[connection signal="player_died" from="HealthBarHolder/HealthBar" to="." method="_on_health_bar_player_died"]

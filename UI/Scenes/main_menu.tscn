@@ -21,7 +21,7 @@ offset_top = 181.0
 offset_bottom = 259.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 51
-text = "Death In Vivum"
+text = "Death In Vivus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -38,6 +38,7 @@ offset_right = 128.0
 offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 27
 text = "Play Game"
 
 [connection signal="pressed" from="StartButton" to="." method="on_start_pressed"]
