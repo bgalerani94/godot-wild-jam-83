@@ -72,6 +72,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="OrganDamageComponent" parent="." instance=ExtResource("5_n8krj")]
+damage_rate = 0.4
 
 [node name="HealthBarHolder" type="Node2D" parent="."]
 
