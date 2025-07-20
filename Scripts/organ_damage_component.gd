@@ -3,14 +3,20 @@ extends Node
 
 @onready var player: CharacterBody2D = $".."
 @onready var consume_audio_player : AudioStreamPlayer2D = $"../ConsumeAudioPlayer"
+@onready var health_bar: ProgressBar = $"../HealthBarHolder/HealthBar"
 
+@export var heal_amount: float = 5
 @export var damage_rate : float = 1.75
+
 var input_enabled : bool = false
 var damage_enabled : bool = false
 var is_damaging : bool = false
 var organ_to_damage : Node
 
+signal on_consumed
+
 func _ready():
+	health_bar.player_damaged.connect(player_damaged)
 	player.player_moved.connect(player_moved)
 	SceneManager.level_loaded.connect(get_new_target)
 	get_new_target()
@@ -29,6 +35,7 @@ func _process(delta):
 func deal_damage(delta):
 	if is_instance_valid(organ_to_damage) and organ_to_damage.has_method("deplete_health"):
 		organ_to_damage.deplete_health(damage_rate * delta)
+		on_consumed.emit(heal_amount * delta)
 		is_damaging = true
 		if not consume_audio_player.playing:
 			consume_audio_player.play()
@@ -53,6 +60,11 @@ func disable_input():
 
 func player_moved():
 	damage_enabled = false
+	
+func player_damaged():
+	if is_damaging:
+		damage_enabled = false
+		is_damaging = false
 
 func can_do_damage() -> bool:
 	return input_enabled and damage_enabled and SceneManager.current_state == SceneManager.GameState.PLAYING and !player.is_moving()

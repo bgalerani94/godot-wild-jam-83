@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://blwqpp5br7203" path="res://Assets/Bullet.png" id="2_ltomt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m52kq"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bhta"]
-radius = 8.0
+radius = 6.0
 
 [node name="Bullet" type="RigidBody2D"]
 collision_mask = 2
