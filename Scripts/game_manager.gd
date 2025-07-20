@@ -21,9 +21,6 @@ var health_bar : ProgressBar
 var damage_component : DamageComponent
 
 signal level_loaded
-
-func _ready():
-	start_game()
 	
 func start_game():	
 	if get_tree().current_scene.scene_file_path != "res://Prototypes/Scenes/test_scene.tscn":	

@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc0y6eltievhx"]
+
+[ext_resource type="Script" uid="uid://cly6g7rod701w" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2sit6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 181.0
+offset_bottom = 259.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 51
+text = "Death In Vivum"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = 30.0
+offset_right = 128.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Game"
+
+[connection signal="pressed" from="StartButton" to="." method="on_start_pressed"]
