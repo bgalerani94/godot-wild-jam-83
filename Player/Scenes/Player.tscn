@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=18 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_g2uht"]
 [ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scripts/player_shoot.gd" id="2_d5g4d"]
@@ -37,6 +37,30 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7jgbj"]
 radius = 24.0
 height = 84.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulbg8"]
+bg_color = Color(0.241156, 0.241156, 0.241156, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rodd"]
+bg_color = Color(0.392157, 0.960784, 0.431373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
@@ -77,7 +101,6 @@ damage_rate = 0.4
 [node name="HealthBarHolder" type="Node2D" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="HealthBarHolder"]
-modulate = Color(0.3936, 0.96, 0.43136, 1)
 z_index = 15
 anchors_preset = 5
 anchor_left = 0.5
@@ -87,6 +110,8 @@ offset_top = -106.0
 offset_right = 101.0
 offset_bottom = -79.0
 grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ulbg8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4rodd")
 value = 100.0
 show_percentage = false
 script = ExtResource("6_fg8py")
