@@ -1,7 +1,8 @@
-# Death in Vivum  
+# Death in Vivus
 
 *A microscopic survival game about relentless consumption*  
 *Made for **Godot Wild Jam 83** (Theme: **Consume**) using Godot 4.4*  
+https://itch.io/jam/godot-wild-jam-83/rate/3737024
 
 ---
 
