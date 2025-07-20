@@ -5,8 +5,8 @@ extends Node
 @onready var consume_audio_player : AudioStreamPlayer2D = $"../ConsumeAudioPlayer"
 @onready var health_bar: ProgressBar = $"../HealthBarHolder/HealthBar"
 
-@export var heal_amount: float = 5
-@export var damage_rate : float = 1.75
+@export var heal_amount: float = .3
+@export var damage_rate : float = .4
 
 var input_enabled : bool = false
 var damage_enabled : bool = false
@@ -34,8 +34,8 @@ func _process(delta):
 
 func deal_damage(delta):
 	if is_instance_valid(organ_to_damage) and organ_to_damage.has_method("deplete_health"):
-		organ_to_damage.deplete_health(damage_rate * delta)
-		on_consumed.emit(heal_amount * delta)
+		organ_to_damage.deplete_health(damage_rate)
+		on_consumed.emit(heal_amount)
 		is_damaging = true
 		if not consume_audio_player.playing:
 			consume_audio_player.play()

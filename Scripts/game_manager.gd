@@ -19,10 +19,16 @@ var organ_health_component : OrganComponent = null
 var player : CharacterBody2D
 var health_bar : ProgressBar
 var damage_component : DamageComponent
+var is_first_organ : bool = true
 
 signal level_loaded
 	
 func start_game():	
+	is_first_organ = true
+	generate_character_info()
+	load_level()
+	load_transition_scene()
+
 	if get_tree().current_scene.scene_file_path != "res://Prototypes/Scenes/test_scene.tscn":	
 		await get_tree().change_scene_to_file("res://Prototypes/Scenes/test_scene.tscn")
 		await get_tree().process_frame
@@ -31,11 +37,8 @@ func start_game():
 			
 	player = get_tree().get_first_node_in_group("Player")
 	health_bar = player.get_node("HealthBarHolder/HealthBar")
-	damage_component = player.get_node("OrganDamageComponent")
-	generate_character_info()
-	load_level()
-	load_transition_scene()
-	health_bar.player_died.connect(on_player_died)
+	damage_component = player.get_node("OrganDamageComponent")	
+	health_bar.player_died.connect(on_player_died)	
 
 # Função de gerar personagem 
 func generate_character_info():
@@ -49,7 +52,8 @@ func load_transition_scene():
 	var updated_screen = transition_scene.instantiate()
 	add_child(updated_screen)
 	if updated_screen.has_method("play_transition"):
-		updated_screen.play_transition(character_name, current_organ)
+		updated_screen.play_transition(character_name, current_organ, is_first_organ)
+	is_first_organ = false
 
 # Função para obter nome correto do orgão
 func get_organ_scene(_organ_name : String):
