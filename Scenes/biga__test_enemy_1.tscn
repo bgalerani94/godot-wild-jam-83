@@ -26,10 +26,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgx7e"]
-size = Vector2(22, 22)
+size = Vector2(44, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgx7e"]
-radius = 17.0
+radius = 54.037
 
 [node name="Biga_Enemy_1" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
@@ -37,7 +37,7 @@ script = ExtResource("1_dgx7e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.6875, 0.6875)
+scale = Vector2(1.6875, 1.6875)
 sprite_frames = SubResource("SpriteFrames_yltrw")
 autoplay = "default"
 frame_progress = 0.117841

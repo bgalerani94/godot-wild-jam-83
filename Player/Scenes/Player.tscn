@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0v87w777rvwn"]
+[gd_scene load_steps=12 format=3 uid="uid://d0v87w777rvwn"]
 
 [ext_resource type="Script" uid="uid://c7iqd5w8axmdj" path="res://Player/Scripts/player_movement.gd" id="1_0qu43"]
 [ext_resource type="Script" uid="uid://b1q0hdyyhdrie" path="res://Player/Scenes/player_shoot.gd" id="3_hql3v"]
 [ext_resource type="Texture2D" uid="uid://b1bxv1akcxcxj" path="res://Assets/BacteriaIdleSheet.png" id="4_7jgbj"]
 [ext_resource type="PackedScene" uid="uid://bbdnb2eijfh6r" path="res://Bullets/Scenes/bullet.tscn" id="4_nk6jx"]
 [ext_resource type="PackedScene" uid="uid://bg8ukn42id1uc" path="res://Scenes/organ_damage_component.tscn" id="5_7jgbj"]
-[ext_resource type="Script" uid="uid://c1nqew2haiv7y" path="res://Player/Scripts/health_bar.gd" id="6_ejah4"]
+[ext_resource type="Script" path="res://Player/Scripts/health_bar.gd" id="6_ejah4"]
+[ext_resource type="PackedScene" uid="uid://bh8wh1fg8pnw5" path="res://Scenes/enemy_spawner.tscn" id="7_wyx6f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejah4"]
 atlas = ExtResource("4_7jgbj")
@@ -79,3 +80,5 @@ grow_horizontal = 2
 value = 100.0
 show_percentage = false
 script = ExtResource("6_ejah4")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_wyx6f")]
