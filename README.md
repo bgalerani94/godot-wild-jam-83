@@ -44,7 +44,7 @@ You are a bacterium invading a human host. **Consume organs** to grow stronger w
 <div align="center">
 
 **If you enjoyed our game, please:**  
-⭐ **Rate** on the [Jam page](https://itch.io/jam/godot-wild-jam-83)  
+⭐ **Rate** on the [Jam page](https://itch.io/jam/godot-wild-jam-83/rate/3737024)  
 🐛 **Report issues** on GitHub  
 
 *Consumption is the purest form of flattery.*  
